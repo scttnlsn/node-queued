@@ -1,22 +1,15 @@
 var assert = require('assert');
 var nock = require('nock');
-var queued = require('../lib/index');
-
-var url = 'http://localhost:5353'
+var helper = require('./helper');
 
 describe('Queue', function () {
-    beforeEach(function () {
-        this.client = queued(url);
-        this.queue = this.client.queue('testing');
-    });
-
     describe('#enqueue', function () {
         beforeEach(function (done) {
             var self = this;
 
-            this.req = nock(url)
+            this.req = nock(this.url)
                 .post('/testing', 'foo')
-                .reply(201, '', { 'Location': url + '/testing/1' });
+                .reply(201, '', { 'Location': this.url + '/testing/1' });
 
             this.queue.enqueue('foo', function (err, item) {
                 if (err) return done(err);
@@ -41,9 +34,9 @@ describe('Queue', function () {
         beforeEach(function (done) {
             var self = this;
 
-            this.req = nock(url)
+            this.req = nock(this.url)
                 .post('/testing/dequeue?timeout=10&wait=30')
-                .reply(200, 'foo', { 'Location': url + '/testing/1' });
+                .reply(200, 'foo', { 'Location': this.url + '/testing/1' });
 
             this.queue.dequeue({ timeout: 10, wait: 30 }, function (err, item) {
                 if (err) return done(err);
