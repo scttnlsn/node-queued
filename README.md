@@ -15,7 +15,7 @@ var queue = client.queue('foo');
 Producer:
 
 ```javascript
-queue.enqueue("foo", function (err, item) {
+queue.enqueue('foo', function (err, item) {
     ...
 });
 ```
