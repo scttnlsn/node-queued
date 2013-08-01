@@ -3,7 +3,8 @@ node-queued
 
 [Queued](http://github.com/scttnlsn/queued) client for Node.js
 
-**Example**
+Example
+-------
 
 ```javascript
 var queued = require('queued');
@@ -32,3 +33,8 @@ queue.dequeue({ timeout: 30, wait: 30 }, function (err, item) {
     });
 });
 ```
+
+Install
+-------
+
+    npm install queued
