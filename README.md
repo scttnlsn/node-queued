@@ -37,4 +37,4 @@ queue.dequeue({ timeout: 10, wait: 30 }, function (err, item) {
 Install
 -------
 
-    npm install queued
+    $ npm install queued
