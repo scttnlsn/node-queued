@@ -16,11 +16,20 @@ describe('Item', function () {
                 .delete('/testing/1')
                 .reply(204, '');
 
-            this.item.complete(done);
+            this.item.complete(function (err, ok) {
+                if (err) return done(err);
+
+                self.ok = ok;
+                done();
+            });
         });
 
         it('DELETEs item from queue', function () {
             this.req.done();
+        });
+
+        it('returns whether item was removed from queue', function () {
+            assert.ok(this.ok);
         });
     });
 });
