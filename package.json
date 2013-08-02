@@ -1,7 +1,7 @@
 {
     "name": "queued",
     "description": "Queued client library",
-    "version": "0.0.0",
+    "version": "0.1.0",
 
     "scripts": {
         "test": "./node_modules/.bin/mocha"
