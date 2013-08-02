@@ -9,7 +9,7 @@ Example
 ```javascript
 var queued = require('queued');
 var client = queued('http://localhost:5353');
-var queue = client.queue('foo');
+var queue = client.queue('testing');
 ```
 
 Producer:
@@ -23,7 +23,7 @@ queue.enqueue('foo', function (err, item) {
 Consumer:
 
 ```javascript
-queue.dequeue({ timeout: 30, wait: 30 }, function (err, item) {
+queue.dequeue({ timeout: 10, wait: 30 }, function (err, item) {
     if (err) throw err;
 
     console.log(item.value);
