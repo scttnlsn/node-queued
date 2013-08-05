@@ -9,7 +9,7 @@ Example
 ```javascript
 var queued = require('queued');
 var client = queued('http://localhost:5353');
-var queue = client.queue('testing');
+var queue = client.queue('testing', { auth: '...' });
 ```
 
 Producer:
