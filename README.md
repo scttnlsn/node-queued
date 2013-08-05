@@ -8,8 +8,8 @@ Example
 
 ```javascript
 var queued = require('queued');
-var client = queued('http://localhost:5353');
-var queue = client.queue('testing', { auth: '...' });
+var client = queued('http://localhost:5353', { auth: '...' });
+var queue = client.queue('testing');
 ```
 
 Producer:
